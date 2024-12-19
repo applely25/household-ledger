@@ -1,7 +1,6 @@
 /** @jsxImportSource @emotion/react */
-import { AppstoreOutlined, MailOutlined } from "@ant-design/icons";
 import { css } from "@emotion/react";
-import { Button, Menu } from "antd";
+import styled from "@emotion/styled";
 import { useNavigate } from "react-router-dom";
 
 const Footer = ({ type, title, nowPage }) => {
@@ -14,15 +13,9 @@ const Footer = ({ type, title, nowPage }) => {
         marginBottom: "1px",
       })}
     >
-      <button
+      <NavButton
         onClick={() => nav("/")}
         css={css(
-          {
-            width: "100%",
-            background: "none",
-            border: "none",
-            cursor: "pointer",
-          },
           nowPage === "inex" && {
             borderBottom: "2px solid #1677FF",
             color: "#1677FF",
@@ -30,16 +23,10 @@ const Footer = ({ type, title, nowPage }) => {
         )}
       >
         수입/지출 관리
-      </button>
-      <button
+      </NavButton>
+      <NavButton
         onClick={() => nav("/acc")}
         css={css(
-          {
-            width: "100%",
-            background: "none",
-            border: "none",
-            cursor: "pointer",
-          },
           nowPage === "acc" && {
             borderBottom: "2px solid #1677FF",
             color: "#1677FF",
@@ -47,16 +34,10 @@ const Footer = ({ type, title, nowPage }) => {
         )}
       >
         계좌/예산 관리
-      </button>
-      <button
+      </NavButton>
+      <NavButton
         onClick={() => nav("/anal")}
         css={css(
-          {
-            width: "100%",
-            background: "none",
-            border: "none",
-            cursor: "pointer",
-          },
           nowPage === "anal" && {
             borderBottom: "2px solid #1677FF",
             color: "#1677FF",
@@ -64,9 +45,16 @@ const Footer = ({ type, title, nowPage }) => {
         )}
       >
         분석
-      </button>
+      </NavButton>
     </footer>
   );
 };
 
 export default Footer;
+
+const NavButton = styled.button`
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+`;

@@ -16,7 +16,7 @@ import { useNavigate } from "react-router-dom";
       />
 
 */
-const Header = ({ type, title, left, right }) => {
+const Header = ({ type, title, left, right, href }) => {
   const nav = useNavigate();
   return (
     <header
@@ -52,7 +52,7 @@ const Header = ({ type, title, left, right }) => {
                   color: "white",
                 }}
                 onClick={() => {
-                  nav(-1);
+                  href ? nav(href) : nav(-1);
                 }}
               />
             )}

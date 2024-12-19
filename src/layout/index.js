@@ -6,30 +6,14 @@ import { Button, Typography } from "antd";
 
 import { Outlet } from "react-router-dom";
 import copyToClipboard from "./../util/copyToClipboard";
+import styled from "@emotion/styled";
 
 const { Title } = Typography;
 
 const Layout = () => {
   return (
-    <div
-      css={css({
-        width: "100vw",
-        height: "100vh",
-        background: "#F0F0F0",
-        display: "flex",
-      })}
-    >
-      <article
-        css={css({
-          width: "380px",
-          height: "100vh",
-          marginLeft: "auto",
-          marginRight: "142px",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-        })}
-      >
+    <Container>
+      <Explain>
         <Title level={1}>
           <span css={css({ color: blue.primary })}>지출/수입 관리</span> 가계부
           000에서 똑똑하게!
@@ -42,23 +26,43 @@ const Layout = () => {
         >
           개발자에게 후원하기
         </Button>
-      </article>
+      </Explain>
       <article
         css={css({
           width: "500px",
           height: "100%",
           background: "white",
-          marginRight: "auto",
           overflow: "hidden",
           display: "flex",
           flexDirection: "column",
           borderRadius: "8px",
+          position: "relative",
         })}
       >
         <Outlet />
       </article>
-    </div>
+    </Container>
   );
 };
 
 export default Layout;
+
+const Container = styled.div`
+  width: 100vw;
+  height: 100vh;
+  background: #f0f0f0;
+  display: flex;
+  justify-content: center;
+`;
+
+const Explain = styled.article`
+  width: 380px;
+  height: 100vh;
+  margin-right: 142px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  @media screen and (max-width: 1200px) {
+    display: none;
+  }
+`;
